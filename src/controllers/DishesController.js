@@ -18,7 +18,9 @@ class DishesController{
       image: filename
     })
 
-    const ingredientsInsert = ingredients.map(name => {
+    const ingredientsArray = JSON.parse(ingredients)
+
+    const ingredientsInsert = ingredientsArray.map(name => {
       return {
         dish_id,
         name
