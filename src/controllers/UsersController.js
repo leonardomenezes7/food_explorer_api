@@ -9,6 +9,10 @@ class UsersController {
     if(!name || !email || !password) {
       throw new AppError("Insira todos os dados.")
     }
+
+    if(password.length < 6) {
+      throw new AppError("A senha precisa ter no mínimo 6 caracteres.")
+    }
     
     const checkUserExists = await knex("users").where({ email })
 
